@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Bundle Options</title>
+</head>
+<body>
+  <div class="bundle-container">
+    <h1>Bundle & Save</h1>
+
+    <!-- Option 1 -->
+    <div class="bundle-option" id="option1">
+      <label>
+        <div class="row">
+          <input type="radio" name="bundle" id="option1-radio" />
+          <span class="pair">1 Pair</span>
+          <span class="discount">50% OFF</span>
+        </div>
+        <div class="price">DKK 195.00</div>
+        <div class="sizes-colors">
+          <div class="dropdown-group">
+            <label for="size1">#1</label>
+            <select id="size1">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+            </select>
+            <select id="color1">
+              <option value="color">Color</option>
+            </select>
+          </div>
+           <div class="dropdown-group">
+            <label for="size3">#2</label>
+            <select id="size3">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+            </select>
+            <select id="color3">
+              <option value="color">Color</option>
+            </select>
+          </div>
+        </div>
+      </label>
+    </div>
+
+    <!-- Option 2 (Most Popular) -->
+    <div class="bundle-option  most-popular" id="option2">
+      <label>
+        <div class="row" >
+          <input type="radio" name="bundle" id="option2-radio" />
+          <span class="pair">2 Pair</span>
+          <span class="discount">40% OFF</span>
+        </div>
+        <div class="price">DKK 345.00</div>
+        <div class="sizes-colors">
+          <div class="dropdown-group">
+            <label for="size2">#1</label>
+            <select id="size2">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+            </select>
+            <select id="color2">
+              <option value="color">Color</option>
+            </select>
+          </div>
+          
+          <div class="dropdown-group">
+            <label for="size3">#2</label>
+            <select id="size3">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+            </select>
+            <select id="color3">
+              <option value="color">Color</option>
+            </select>
+          </div>
+        </div>
+      </label>
+    </div>
+
+    <!-- Option 3 -->
+    <div class="bundle-option" id="option3">
+      <label>
+        <div class="row">
+          <input type="radio" name="bundle" id="option3-radio" />
+          <span class="pair">3 Pair</span>
+          <span class="discount">60% OFF</span>
+        </div>
+        <div class="price">DKK 528.00</div>
+        <div class="sizes-colors">
+          <div class="dropdown-group">
+            <label for="size4">#1</label>
+            <select id="size4">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+            </select>
+            <select id="color4">
+              <option value="color">Color</option>
+            </select>
+          </div>
+           <div class="dropdown-group">
+            <label for="size3">#2</label>
+            <select id="size3">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+            </select>
+            <select id="color3">
+              <option value="color">Color</option>
+            </select>
+          </div>
+        </div>
+      </label>
+    </div>
+
+    <!-- Total and Add to Cart -->
+    <div class="total">
+      <p style="color: teal;">Free 2 Day Shipping</p>
+      <span>Total: DKK 360.00</span>
+    </div>
+    <button class="add-to-cart">+ Add to Cart</button>
+
+    <footer>© Powered by Pumper</footer>
+  </div>
+
+  <script>
+    // Automatically simulate hovering and selecting Option 2 on page load
+    window.onload = () => {
+      const option2 = document.getElementById('option2');
+      const option2Radio = document.getElementById('option2-radio');
+      
+      // Add 'hovered' class to Option 2
+      option2.classList.add('hovered');
+      
+      // Set Option 2 radio button to be checked
+      option2Radio.checked = true;
+      
+      // Make the select boxes for Option 2 visible
+      option2.querySelector('.sizes-colors').style.display = 'flex';
+    };
+
+    // Handle hover effect for selecting radio button and showing the select boxes
+    const bundleOptions = document.querySelectorAll('.bundle-option');
+
+    bundleOptions.forEach(option => {
+      option.addEventListener('mouseenter', () => {
+        const radioBtn = option.querySelector('input[type="radio"]');
+        radioBtn.checked = true; // Select radio button on hover
+        option.classList.add('hovered'); // Apply hovered effect
+        option.querySelector('.sizes-colors').style.display = 'flex'; // Show select boxes on hover
+      });
+
+      option.addEventListener('mouseleave', () => {
+        option.classList.remove('hovered'); // Remove hovered effect
+        option.querySelector('.sizes-colors').style.display = 'none'; // Hide select boxes on hover leave
+      });
+    });
+  </script>
+</body>
+</html>
